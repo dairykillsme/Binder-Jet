@@ -1188,7 +1188,11 @@
       #define I_USE_ENDSTOP _En_DIAG_(I_E_INDEX)
     #endif
     #define AUTO_ASSIGNED_I_DIAG 1
-    #undef I_DIAG_PIN // Defined in Conditionals_post.h based on I_USE_ENDSTOP
+    #if I_HOME_TO_MIN
+      #define I_MIN_PIN I_DIAG_PIN
+    #else
+      #define I_MAX_PIN I_DIAG_PIN
+    #endif
   #endif
 #endif
 
@@ -1274,7 +1278,11 @@
       #define J_USE_ENDSTOP _En_DIAG_(J_E_INDEX)
     #endif
     #define AUTO_ASSIGNED_J_DIAG 1
-    #undef J_DIAG_PIN // Defined in Conditionals_post.h based on J_USE_ENDSTOP
+    #if J_HOME_TO_MIN
+      #define J_MIN_PIN J_DIAG_PIN
+    #else
+      #define J_MAX_PIN J_DIAG_PIN
+    #endif
   #endif
 #endif
 
